@@ -9,12 +9,12 @@ import {
     StatusBar
 } from 'react-native';
 import { Ionicons, Feather } from "@expo/vector-icons";
- 
+
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "./HomeScreen";
- 
+
 type Props = NativeStackScreenProps<RootStackParamList, 'Menu'>
- 
+
 type Product = {
     id: string;
     name: string;
@@ -22,9 +22,9 @@ type Product = {
     price: string;
     image: number;
 }
- 
+
 const combos: Product[] = [
- 
+
     {
         id: 'combo-1',
         name: 'McOferta Média Big Mac Duplo',
@@ -54,7 +54,7 @@ const combos: Product[] = [
         image: require('../images/combo-duplo-cheddar-mcmelt.png'),
     }
 ];
- 
+
 const lanches: Product[] = [
     {
         id: 'lanche-1',
@@ -85,7 +85,7 @@ const lanches: Product[] = [
         image: require('../images/lanche-mcnifico-bacon.png'),
     }
 ];
- 
+
 const fritas: Product[] = [
     {
         id: 'fritas-1',
@@ -132,9 +132,9 @@ const bebidas: Product[] = [
         image: require('../images/agua.png'),
     },
 ]
- 
+
 const categories = ['Combos', 'Lanches', 'Fritas', 'Bebidas'];
- 
+
 function getProdutos(categoriaSelecionada: string): Product[] {
     switch (categoriaSelecionada) {
         case 'Combos':
@@ -149,10 +149,10 @@ function getProdutos(categoriaSelecionada: string): Product[] {
             return combos;
     }
 }
- 
+
 export default function MenuScreen({ navigation }: Props) {
     const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>('Combos');
- 
+
     const produtosDaCateoria = getProdutos(categoriaSelecionada);
     return (
         <View style={styles.container}>
@@ -181,7 +181,7 @@ export default function MenuScreen({ navigation }: Props) {
                         onPress={() => { }}
                     >
                         <Feather name="file-text" size={20} color={'#000000'} />
- 
+
                     </TouchableOpacity>
                 </View>
                 <View style={styles.infoCard}>
@@ -191,11 +191,11 @@ export default function MenuScreen({ navigation }: Props) {
                             style={styles.infoLogo}
                             resizeMode="contain"
                         />
- 
+
                         <View style={styles.infoTexts}>
                             <Text style={styles.brandName}>McDonald's</Text>
                             <Text style={styles.brandSubtitle}>O melhor fast food do mundo</Text>
- 
+
                         </View>
                     </View>
                     <View style={styles.statusRow}>
@@ -224,10 +224,10 @@ export default function MenuScreen({ navigation }: Props) {
                                             styles.categoryText,
                                             isActive && styles.categoryTextActive,
                                         ]}>
- 
+
                                         {category}
                                     </Text>
- 
+
                                 </TouchableOpacity>
                             );
                         })}
@@ -242,7 +242,7 @@ export default function MenuScreen({ navigation }: Props) {
                             ]}
                             activeOpacity={0.85}
                             onPress={() => {
- 
+
                             }}
                         >
                             <View style={styles.productInfo}>
@@ -264,7 +264,7 @@ export default function MenuScreen({ navigation }: Props) {
         </View >
     );
 }
- 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     headerImage: {
         width: '100%',
         height: '100%',
- 
+
     },
     headerButton: {
         position: 'absolute',

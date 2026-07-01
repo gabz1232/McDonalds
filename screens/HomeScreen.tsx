@@ -20,7 +20,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFFF" />
       <View style={styles.container}>
         <View style={styles.header}>
-          <Image source={require('./images/logo.png')}
+          <Image source={require('../images/logo.png')}
             style={styles.logo}
             resizeMode="contain"
           />
